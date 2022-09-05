@@ -9,3 +9,18 @@ message Student {
   string name = 2;
   int32 age = 3;
 }
+
+message GetStudentRequest {
+  string id = 1;
+}
+
+message SetStudentResponse {
+  string id = 1;
+}
+
+service StudentService {
+  // Unary method: GetStudent
+  rpc GetStudent(GetStudentRequest) returns (Student);
+  // Unary method: SetStudent
+  rpc SetStudent(Student) returns (SetStudentResponse);
+}
